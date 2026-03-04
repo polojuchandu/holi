@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Holi 🎨</title>
     <meta name="description" content="Celebrate Holi with colors, joy and fun! A virtual Holi experience.">
+    <meta name="theme-color" content="#FF1493">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://holi.polojuchandu3.workers.dev/">
+    <meta property="og:title" content="Happy Holi! 🎨🌈✨">
+    <meta property="og:description"
+        content="Come play virtual Holi with me! Splash colors, have fun, and celebrate the festival of colors! 💦🎉">
+    <meta property="og:image" content="https://holi.polojuchandu3.workers.dev/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Happy Holi! 🎨🌈✨">
+    <meta name="twitter:description"
+        content="Come play virtual Holi with me! Splash colors, have fun, and celebrate! 💦🎉">
+    <meta name="twitter:image" content="https://holi.polojuchandu3.workers.dev/assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    <link rel="apple-touch-icon" href="assets/og-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,7 +40,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -51,40 +77,61 @@
         }
 
         .splash-1 {
-            width: 200px; height: 200px;
+            width: 200px;
+            height: 200px;
             background: #FF1493;
-            top: -50px; left: -40px;
+            top: -50px;
+            left: -40px;
             animation-delay: 0.3s;
         }
+
         .splash-2 {
-            width: 180px; height: 180px;
+            width: 180px;
+            height: 180px;
             background: #FFD700;
-            top: 10%; right: -30px;
+            top: 10%;
+            right: -30px;
             animation-delay: 0.6s;
         }
+
         .splash-3 {
-            width: 160px; height: 160px;
+            width: 160px;
+            height: 160px;
             background: #00BFFF;
-            bottom: 30%; left: -20px;
+            bottom: 30%;
+            left: -20px;
             animation-delay: 0.9s;
         }
+
         .splash-4 {
-            width: 220px; height: 220px;
+            width: 220px;
+            height: 220px;
             background: #32CD32;
-            bottom: -40px; right: -50px;
+            bottom: -40px;
+            right: -50px;
             animation-delay: 1.2s;
         }
+
         .splash-5 {
-            width: 140px; height: 140px;
+            width: 140px;
+            height: 140px;
             background: #FF6347;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             animation-delay: 0.5s;
         }
 
         @keyframes splashIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            100% { opacity: 0.35; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            100% {
+                opacity: 0.35;
+                transform: scale(1);
+            }
         }
 
         /* ===== HERO IMAGE ===== */
@@ -109,17 +156,22 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                to bottom,
-                transparent 40%,
-                rgba(0,0,0,0.3) 60%,
-                rgba(0,0,0,0.85) 100%
-            );
+            background: linear-gradient(to bottom,
+                    transparent 40%,
+                    rgba(0, 0, 0, 0.3) 60%,
+                    rgba(0, 0, 0, 0.85) 100%);
         }
 
         @keyframes fadeInImage {
-            0% { opacity: 0; transform: scale(1.08); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(1.08);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* ===== FLOATING COLOR PARTICLES ===== */
@@ -143,13 +195,16 @@
                 transform: translateY(100vh) rotate(0deg) scale(0);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.8;
                 transform: translateY(90vh) rotate(36deg) scale(1);
             }
+
             90% {
                 opacity: 0.6;
             }
+
             100% {
                 transform: translateY(-10vh) rotate(360deg) scale(0.3);
                 opacity: 0;
@@ -170,8 +225,15 @@
         }
 
         @keyframes slideUpDialog {
-            0% { opacity: 0; transform: translateY(100%); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .dialog-box {
@@ -181,7 +243,7 @@
             border-radius: 28px;
             padding: 32px 24px 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 
+            box-shadow:
                 0 24px 48px rgba(0, 0, 0, 0.4),
                 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
             text-align: center;
@@ -202,8 +264,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .dialog-emoji {
@@ -214,8 +283,15 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .dialog-question {
@@ -271,7 +347,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -303,12 +379,13 @@
         /* ===== RESPONSIVE ===== */
         @media (min-width: 431px) {
             .container {
-                border-left: 1px solid rgba(255,255,255,0.1);
-                border-right: 1px solid rgba(255,255,255,0.1);
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container" id="mainContainer">
         <!-- Background color splashes -->
@@ -418,4 +495,5 @@
         }
     </script>
 </body>
+
 </html>
