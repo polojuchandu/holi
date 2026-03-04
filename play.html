@@ -264,7 +264,7 @@
     <!-- Video Area -->
     <div class="video-area" id="videoArea">
       <video class="video-player" id="videoPlayer" src="assets/gemini_generated_video_4bb54706.mp4" playsinline
-        webkit-playsinline preload="auto"></video>
+        webkit-playsinline preload="auto" muted></video>
 
 
 
@@ -284,17 +284,53 @@
   <!-- Confetti -->
   <div class="confetti-container" id="confettiContainer"></div>
 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/Janmashtami Special  Radha Kaise Na Jale  Bipra Bala  Flute Instrumental.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const video = document.getElementById('videoPlayer');
     const playBtn = document.getElementById('playBtn');
     const holiColors = document.getElementById('holiColors');
     const confettiContainer = document.getElementById('confettiContainer');
     const nowPlaying = document.getElementById('nowPlaying');
+    const bgMusic = document.getElementById('bgMusic');
 
     let isPlaying = false;
     let colorInterval = null;
     let edgeInterval = null;
     let confettiInterval = null;
+    let musicStarted = false;
+
+    // ===== BACKGROUND MUSIC =====
+    // Resume from saved position
+    const savedTime = sessionStorage.getItem('bgMusicTime');
+    if (savedTime) {
+      bgMusic.currentTime = parseFloat(savedTime);
+    }
+
+    function startMusic() {
+      if (!musicStarted) {
+        bgMusic.play().then(() => {
+          musicStarted = true;
+        }).catch(() => { });
+      }
+    }
+
+    // Start music on any user interaction
+    document.addEventListener('click', startMusic, { once: false });
+    document.addEventListener('touchstart', startMusic, { once: false });
+
+    // Try autoplay immediately
+    bgMusic.play().then(() => {
+      musicStarted = true;
+    }).catch(() => { });
+
+    // Save position before leaving page
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('bgMusicTime', bgMusic.currentTime);
+    });
 
     const HOLI_COLORS = [
       '#FF1493', '#FF69B4', '#FF6347', '#FF4500',

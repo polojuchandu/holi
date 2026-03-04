@@ -423,7 +423,45 @@
     <!-- Transition overlay -->
     <div class="transition-overlay" id="transitionOverlay"></div>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/Janmashtami Special  Radha Kaise Na Jale  Bipra Bala  Flute Instrumental.mp3"
+            type="audio/mpeg">
+    </audio>
+
     <script>
+        // ===== BACKGROUND MUSIC =====
+        const bgMusic = document.getElementById('bgMusic');
+        let musicStarted = false;
+
+        // Try to resume from saved position
+        const savedTime = sessionStorage.getItem('bgMusicTime');
+        if (savedTime) {
+            bgMusic.currentTime = parseFloat(savedTime);
+        }
+
+        function startMusic() {
+            if (!musicStarted) {
+                bgMusic.play().then(() => {
+                    musicStarted = true;
+                }).catch(() => { });
+            }
+        }
+
+        // Start music on any user interaction
+        document.addEventListener('click', startMusic, { once: false });
+        document.addEventListener('touchstart', startMusic, { once: false });
+
+        // Try autoplay immediately
+        bgMusic.play().then(() => {
+            musicStarted = true;
+        }).catch(() => { });
+
+        // Save position before leaving page
+        window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem('bgMusicTime', bgMusic.currentTime);
+        });
+
         // ===== FLOATING PARTICLES =====
         const particlesContainer = document.getElementById('particles');
         const colors = ['#FF1493', '#FFD700', '#00BFFF', '#32CD32', '#FF6347', '#9B59B6', '#FF8C00', '#00CED1'];
@@ -463,6 +501,9 @@
 
         // ===== TRANSITION TO PLAY PAGE =====
         function goToPlay(btn) {
+            // Save music position before navigating
+            sessionStorage.setItem('bgMusicTime', bgMusic.currentTime);
+
             const overlay = document.getElementById('transitionOverlay');
             overlay.classList.add('active');
 
