@@ -34,6 +34,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
+        body { margin: 0; background: #0a0a0a; font-family: 'Poppins', sans-serif; }
+        .shutdown { display: flex; align-items: center; justify-content: center; height: 100vh; color: white; text-align: center; padding: 24px; }
+        .shutdown-icon { font-size: 56px; margin-bottom: 16px; }
+        .shutdown-title { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+        .shutdown-msg { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    </style>
+    <!--
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -384,11 +392,21 @@
             }
         }
     </style>
+    -->
 </head>
 
 <body>
+    <!-- Shutdown message -->
+    <main class="shutdown" aria-label="Site shutdown notice">
+        <div>
+            <p class="shutdown-icon" aria-hidden="true">🎨</p>
+            <h1 class="shutdown-title">Thank you for the colors!</h1>
+            <p class="shutdown-msg">This site has been shut down.<br>Wishing you a Happy Holi always! 🌈✨</p>
+        </div>
+    </main>
+
+    <!--
     <div class="container" id="mainContainer">
-        <!-- Background color splashes -->
         <div class="bg-splashes">
             <div class="splash splash-1"></div>
             <div class="splash splash-2"></div>
@@ -397,16 +415,13 @@
             <div class="splash splash-5"></div>
         </div>
 
-        <!-- Hero Image -->
         <div class="hero-image-wrapper">
             <img src="assets/1772598871805.png" alt="Happy Holi Celebration" class="hero-image" id="heroImage">
             <div class="hero-overlay"></div>
         </div>
 
-        <!-- Floating particles -->
         <div class="particles" id="particles"></div>
 
-        <!-- Dialog -->
         <div class="dialog-wrapper" id="dialogWrapper">
             <div class="dialog-box">
                 <span class="dialog-emoji">🎨🌈✨</span>
@@ -420,10 +435,8 @@
         </div>
     </div>
 
-    <!-- Transition overlay -->
     <div class="transition-overlay" id="transitionOverlay"></div>
 
-    <!-- Background Music -->
     <audio id="bgMusic" loop preload="auto">
         <source src="assets/Janmashtami Special  Radha Kaise Na Jale  Bipra Bala  Flute Instrumental.mp3"
             type="audio/mpeg">
@@ -434,7 +447,6 @@
         const bgMusic = document.getElementById('bgMusic');
         let musicStarted = false;
 
-        // Try to resume from saved position
         const savedTime = sessionStorage.getItem('bgMusicTime');
         if (savedTime) {
             bgMusic.currentTime = parseFloat(savedTime);
@@ -448,16 +460,13 @@
             }
         }
 
-        // Start music on any user interaction
         document.addEventListener('click', startMusic, { once: false });
         document.addEventListener('touchstart', startMusic, { once: false });
 
-        // Try autoplay immediately
         bgMusic.play().then(() => {
             musicStarted = true;
         }).catch(() => { });
 
-        // Save position before leaving page
         window.addEventListener('beforeunload', () => {
             sessionStorage.setItem('bgMusicTime', bgMusic.currentTime);
         });
@@ -489,19 +498,16 @@
             }, (duration + delay) * 1000);
         }
 
-        // Create initial batch
         for (let i = 0; i < 20; i++) {
             createParticle();
         }
 
-        // Continuously create particles
         setInterval(() => {
             createParticle();
         }, 400);
 
         // ===== TRANSITION TO PLAY PAGE =====
         function goToPlay(btn) {
-            // Save music position before navigating
             sessionStorage.setItem('bgMusicTime', bgMusic.currentTime);
 
             const overlay = document.getElementById('transitionOverlay');
@@ -535,6 +541,7 @@
             }, 800);
         }
     </script>
+    -->
 </body>
 
 </html>

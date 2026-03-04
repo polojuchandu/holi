@@ -33,6 +33,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    body { margin: 0; background: #0a0a0a; font-family: 'Poppins', sans-serif; }
+    .shutdown { display: flex; align-items: center; justify-content: center; height: 100vh; color: white; text-align: center; padding: 24px; }
+    .shutdown-icon { font-size: 56px; margin-bottom: 16px; }
+    .shutdown-title { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .shutdown-msg { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  </style>
+  <!--
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -257,22 +265,30 @@
       }
     }
   </style>
+  -->
 </head>
 
 <body>
+  <!-- Shutdown message -->
+  <main class="shutdown" aria-label="Site shutdown notice">
+    <div>
+      <p class="shutdown-icon" aria-hidden="true">🎨</p>
+      <h1 class="shutdown-title">Thank you for the colors!</h1>
+      <p class="shutdown-msg">This site has been shut down.<br>Wishing you a Happy Holi always! 🌈✨</p>
+    </div>
+  </main>
+
+  <!--
   <div class="container" id="mainContainer">
-    <!-- Video Area -->
     <div class="video-area" id="videoArea">
       <video class="video-player" id="videoPlayer" src="assets/gemini_generated_video_4bb54706.mp4" playsinline
         webkit-playsinline preload="auto" muted></video>
 
 
 
-      <!-- Holi colors overlay -->
       <div class="holi-colors-overlay" id="holiColors"></div>
     </div>
 
-    <!-- Bottom Controls -->
     <div class="bottom-controls">
       <div class="now-playing" id="nowPlaying">🎶 Now Playing</div>
       <button class="play-btn" id="playBtn" onclick="handlePlay()">
@@ -281,10 +297,8 @@
     </div>
   </div>
 
-  <!-- Confetti -->
   <div class="confetti-container" id="confettiContainer"></div>
 
-  <!-- Background Music -->
   <audio id="bgMusic" loop preload="auto">
     <source src="assets/Janmashtami Special  Radha Kaise Na Jale  Bipra Bala  Flute Instrumental.mp3" type="audio/mpeg">
   </audio>
@@ -637,6 +651,7 @@
       });
     }
   </script>
+  -->
 </body>
 
 </html>
